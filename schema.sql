@@ -18,16 +18,25 @@ CREATE TABLE boards (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE notes (
+CREATE TABLE tasks (
   id int NOT NULL AUTO_INCREMENT,
   board_id int,
   text varchar(200) NOT NULL,
   completed boolean NOT NULL default 0,
   PRIMARY KEY (id)
-)
+);
 
+INSERT INTO users (name) VALUES ('kmenghini');
+INSERT INTO users (name) VALUES ('kaitlyn');
 
+INSERT INTO boards (user_id, name) VALUES (1, 'kmenghini board 1');
+INSERT INTO boards (user_id, name) VALUES (1, 'kmenghini board 2');
+INSERT INTO boards (user_id, name, is_favorite) VALUES (1, 'kmenghini favorites', true);
+INSERT INTO boards (user_id, name) VALUES (2, 'kaitlyn board 1');
 
+INSERT INTO tasks (board_id, text) VALUES (1, 'kmenghini task on board 1');
+INSERT INTO tasks (board_id, text, completed) VALUES (3, 'completed task on kmenghini favorites board', true);
+INSERT INTO tasks (board_id, text) VALUES (4, 'kaitlyn task on board 1');
 
 /*  Execute this file from the command line by typing:
  *    mysql -u <USER> < schema.sql
