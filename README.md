@@ -1,6 +1,8 @@
 # task-boards
 organizational tool inspired by Trello
 
+to start, run `node server/index.js` and `npm run start` from the command line
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

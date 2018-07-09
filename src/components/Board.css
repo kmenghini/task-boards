@@ -1,0 +1,4 @@
+.task-container-enclosure {
+  display: flex;
+  align-items: stretch;
+}

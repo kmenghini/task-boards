@@ -4,3 +4,8 @@ module.exports = {
   password: '',
   database: 'task_boards'
 };
+
+
+//to start, `brew services start mysql`
+//`mysql -u root`
+

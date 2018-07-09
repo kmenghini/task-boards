@@ -13,8 +13,34 @@ const getAllBoardsForUser = function(userName, callback) {
       callback(res);
     }
   });
+};
+
+const getAllContainersForBoard = function(board, callback) {
+  const queryString = `SELECT id, name FROM containers WHERE board_id=?;`;
+  connection.query(queryString, board, function (err, res) {
+    if (err) {
+      console.log(err);
+      callback(err);
+    } else if (res) {
+      callback(res);
+    }
+  });
+}
+
+const getAllTasksForContainer = function(container, callback) {
+  const queryString = `SELECT id, text, completed FROM tasks WHERE container_id=?;`;
+  connection.query(queryString, container, function (err, res) {
+    if (err) {
+      console.log(err);
+      callback(err);
+    } else if (res) {
+      callback(res);
+    }
+  });
 }
 
 module.exports = {
-  getAllBoardsForUser
+  getAllBoardsForUser,
+  getAllContainersForBoard,
+  getAllTasksForContainer
 };

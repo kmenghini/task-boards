@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
-import { NoteContainer } from './NoteContainer';
+import { TaskContainer } from './TaskContainer';
+
+import styles from './Board.css';
 
 export class Board extends Component {
+
     render() {
+
+        let {containers} = this.props;
+
         return (
-            <div>
-                <div className="board">
-                    <h1>Board goes here</h1>
+            <div className="board">
+                <div className="task-container-enclosure">
+                    {
+                        containers.map(({id, name, tasks}) => 
+                            <TaskContainer 
+                                key={id}
+                                id={id} 
+                                name={name} 
+                                tasks={tasks}
+                            />
+                        )
+                    }
                 </div>
-                <div>
-                    <NoteContainer />
-                    <NoteContainer />
-                    <NoteContainer />
-                </div>
+
             </div>
         );
     }
 }
-export default Board;
